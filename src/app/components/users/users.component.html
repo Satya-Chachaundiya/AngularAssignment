@@ -1,0 +1,47 @@
+<div style="margin: 10%; margin-left: 30%;" *ngIf="show else elseblock">
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-8">
+        <div class="tile">
+          <div class="tile is-parent">
+            <article class="tile is-child notification is-primary">
+              <p class="title">Users</p>
+                <div class="content" >
+
+                    <table class="table">
+                      <thead>
+
+                        <tr>
+                          <th><abbr title="Serial number">S.No</abbr></th>
+                          <th>Name</th>
+                          <th>Username</th>
+                          <th>Email</th>
+                          <th>Remove</th>
+                        </tr>
+                      
+                      </thead>
+
+                      <tbody>
+                        
+                        <tr *ngFor="let key of users; let i = index">
+                          <th>{{i+1}}</th>
+                          <td>{{key.name}}</td>
+                          <td>{{key.username}}</td>
+                          <td>{{key.email}}</td>
+                          <td><a class="button is-warning" (click)="delete(i)">❌</a></td>
+                        </tr>
+
+                      </tbody>
+                    </table>
+
+                </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  
+
+<!-- ng-template here will work when if case will fail -->
+<ng-template #elseblock>
+  <div style="text-align: center; font-size: 30px;">No users are available ----></div>
+</ng-template>
